@@ -20,16 +20,18 @@
   <body>
     <!-- 헤더 -->
     <div class="header">
-      <span><i class="xi-search"></i></span>
-      <span><i class="xi-bars"></i></span>
+      <span class="bars"><i class="xi-bars"></i></span>
+      <span class="search"><i class="xi-search"></i></span>
     </div>
 
     <!-- 메뉴 -->
-    <ul class="nav">
-      <li><a href="#">sunt in</a></li>
-      <li><a href="#">qui officia</a></li>
-      <li><a href="#">mollitia animi</a></li>
-      <li><a href="#">beguiled</a></li>
+    <ul id="nav" class="nav">
+      <li>
+        <a data-menuanchor="page1" href="#page1" class="active">sunt in</a>
+      </li>
+      <li><a data-menuanchor="page2" href="#page2">qui officia</a></li>
+      <li><a data-menuanchor="page3" href="#page3">mollitia animi</a></li>
+      <li><a data-menuanchor="page4" href="#page4">beguiled</a></li>
     </ul>
 
     <!-- 검색창 -->
@@ -42,7 +44,151 @@
 
     <!-- 내용 -->
     <section id="fullpage">
-      <div class="section">Some section</div>
+      <!-- 섹션01 -->
+      <div class="section">
+        <div class="container">
+          <div class="mouse_box"><span class="mouse"></span></div>
+          <div class="info">
+            <h3>Lorem ipsum dolor</h3>
+            <h2>sed do eiusmod tempr incddut ut</h2>
+            <div class="line"></div>
+            <p>
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis praesentium voluptatum deleniti atque corrupti quos
+              dolores et quas molestias excepturi sint occaecati cupiditate non
+              provident
+            </p>
+            <div class="contact">
+              <a href="#"
+                ><i class="xi-instagram"></i><span>Lorem Ipsum</span></a
+              >
+              <a href="#"
+                ><i class="xi-mail-o"></i> <span>quis@doloremque.com</span></a
+              >
+            </div>
+          </div>
+          <div class="photo">
+            <img src="./img/bg01.jpg" alt="img" />
+          </div>
+        </div>
+      </div>
+      <!-- 섹션02 -->
+      <div class="section">
+        <div class="container">
+          <div class="photo">
+            <img src="./img/bg02.jpg" alt="img" />
+          </div>
+          <div class="info">
+            <h3>Lorem ipsum dolor</h3>
+            <h2>sed do eiusmod tempr incddut ut</h2>
+            <div class="line"></div>
+            <p>
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis praesentium voluptatum deleniti atque corrupti quos
+              dolores et quas molestias excepturi sint occaecati cupiditate non
+              provident
+            </p>
+            <div class="contact">
+              <a href="#"
+                ><i class="xi-instagram"></i><span>Lorem Ipsum</span></a
+              >
+              <a href="#"
+                ><i class="xi-mail-o"></i> <span>quis@doloremque.com</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 섹션03 -->
+      <div class="section">
+        <div class="container">
+          <div class="info">
+            <h3>Lorem ipsum dolor</h3>
+            <h2>sed do eiusmod tempr incddut ut</h2>
+            <div class="line"></div>
+            <p>
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis praesentium voluptatum deleniti atque corrupti quos
+              dolores et quas molestias excepturi sint occaecati cupiditate non
+              provident
+            </p>
+            <div class="contact">
+              <a href="#"
+                ><i class="xi-instagram"></i><span>Lorem Ipsum</span></a
+              >
+              <a href="#"
+                ><i class="xi-mail-o"></i> <span>quis@doloremque.com</span></a
+              >
+            </div>
+          </div>
+          <div class="photo">
+            <img src="./img/bg03.jpg" alt="img" />
+          </div>
+        </div>
+      </div>
+      <!-- 섹션04 -->
+      <div class="section">
+        <div class="container">
+          <div class="photo">
+            <img src="./img/bg04.jpg" alt="img" />
+          </div>
+          <div class="info">
+            <h3>Lorem ipsum dolor</h3>
+            <h2>sed do eiusmod tempr incddut ut</h2>
+            <div class="line"></div>
+            <p>
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis praesentium voluptatum deleniti atque corrupti quos
+              dolores et quas molestias excepturi sint occaecati cupiditate non
+              provident
+            </p>
+            <div class="contact">
+              <a href="#"
+                ><i class="xi-instagram"></i><span>Lorem Ipsum</span></a
+              >
+              <a href="#"
+                ><i class="xi-mail-o"></i> <span>quis@doloremque.com</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <script>
+      //메뉴
+      var bars = $('.bars')
+      var search = $('.search')
+      var nav = $('.nav')
+      var searchform = $('.search_area')
+
+      bars.on('click', function () {
+        nav.toggleClass('active')
+
+        if ($(this).find('i').hasClass('xi-bars')) {
+          $(this).find('i').attr('class', 'xi-close')
+        } else {
+          $(this).find('i').attr('class', 'xi-bars')
+        }
+      })
+
+      search.on('click', function () {
+        searchform.toggleClass('active')
+      })
+
+      // 풀페이지
+      $('#fullpage').fullpage({
+        navigation: true,
+        menu: '#nav',
+        anchors: ['page1', 'page2', 'page3', 'page4'],
+        responsive: 900,
+        onLeave: function () {
+          $('.line').removeClass('active')
+        },
+        afterLoad: function () {
+          $('.line').addClass('active')
+        }
+      })
+    </script>
   </body>
 </html>
